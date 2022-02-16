@@ -4,10 +4,8 @@ pipeline {
     stages {
         stage ('Build Image') {
             script {
-                dockerapp = docker.build("appproduto/api-produto", '-f ./src/Dockerfile ./src') {
-
-                }
-            }
+                    dockerapp = docker.build("produto/api-produto:${env.BUILD_ID}", '-f ./src/Dockerfile ./src') 
+                }    
         }
     }
 }
