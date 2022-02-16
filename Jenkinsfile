@@ -3,9 +3,11 @@ pipeline {
 
     stages {
         stage ('Build Image') {
-            script {
-                    dockerapp = docker.build("produto/api-produto:${env.BUILD_ID}", '-f ./src/Dockerfile ./src') 
-                }    
+            steps {
+                script {
+                    dockerapp = docker.build("fabricioveronez/api-produto:${env.BUILD_ID}", '-f ./src/Dockerfile ./src') 
+                }                
+            }    
         }
     }
 }
